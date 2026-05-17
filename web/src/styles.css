@@ -44,11 +44,12 @@
   --color-sepia:     var(--color-line);
   --color-sepia-soft: var(--color-cream-warm);
 
-  /* —— 字体 —— */
-  --font-kaiti:  "LXGW WenKai Screen", "LXGW WenKai", "Ma Shan Zheng", "STKaiti", "KaiTi", "Noto Serif SC", serif;
-  --font-serif:  "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
-  --font-sans:   "Noto Sans SC", "PingFang SC", system-ui, -apple-system, sans-serif;
-  --font-num:    "Inter", "Noto Sans SC", system-ui, sans-serif;
+  /* —— 字体（仅自托管，零外部依赖） —— */
+  --font-kaiti:  "LXGW WenKai Screen", "Noto Serif SC", "STKaiti", "KaiTi", serif;
+  --font-serif:  "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", serif;
+  --font-sans:   -apple-system, BlinkMacSystemFont, "PingFang SC", "HarmonyOS Sans SC",
+                 "Microsoft YaHei UI", "Microsoft YaHei", "Source Han Sans SC", system-ui, sans-serif;
+  --font-num:    "Inter", -apple-system, "PingFang SC", system-ui, sans-serif;
 
   /* —— 阴影 —— */
   --shadow-soft:   0 1px 2px rgba(31, 37, 25, 0.04), 0 6px 16px rgba(31, 37, 25, 0.05);

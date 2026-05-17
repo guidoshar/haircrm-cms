@@ -16,5 +16,19 @@ export default defineConfig({
   build: {
     outDir: "dist",
     sourcemap: false,
+    chunkSizeWarningLimit: 1200,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "react-vendor": ["react", "react-dom", "react-router-dom"],
+          "fluent": [
+            "@fluentui/react-components",
+            "@fluentui/react-icons",
+          ],
+          "query": ["@tanstack/react-query"],
+          "motion": ["framer-motion"],
+        },
+      },
+    },
   },
 });
