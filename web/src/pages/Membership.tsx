@@ -54,7 +54,7 @@ export default function Membership() {
               >
                 {t.icon_key && ICONS[t.icon_key] ? ICONS[t.icon_key] : <Sparkle24Regular />}
               </span>
-              <h3 className="font-kai mt-5 text-[40px] text-[color:var(--color-ink)] leading-tight">
+              <h3 className="font-serif-cn mt-5 text-[36px] tracking-[0.06em] text-[color:var(--color-ink)] leading-tight">
                 {t.name}
               </h3>
               <p className="text-[12px] tracking-[0.42em] uppercase mt-1" style={{ color: t.accent_color }}>

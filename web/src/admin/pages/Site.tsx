@@ -56,14 +56,14 @@ export default function AdminSite() {
         <Field label="联系电话" hint="顶部右上角直拨">
           <TextInput value={form.cta_phone} onChange={(e) => setForm({ ...form, cta_phone: e.target.value })} />
         </Field>
-        <Field label="品牌简介" hint="支持 Markdown · 显示在 关于诗碧曼 页">
+        <Field label="品牌简介" hint="支持 Markdown · 显示在 关于诗碧曼养护中心 页">
           <TextArea
             rows={6}
             value={form.intro_md}
             onChange={(e) => setForm({ ...form, intro_md: e.target.value })}
           />
         </Field>
-        <Field label="原理科普" hint="支持 Markdown · 显示在 关于诗碧曼 页">
+        <Field label="原理科普" hint="支持 Markdown · 显示在 关于诗碧曼养护中心 页">
           <TextArea
             rows={8}
             value={form.principle_md}

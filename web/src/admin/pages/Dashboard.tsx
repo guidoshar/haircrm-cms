@@ -26,7 +26,7 @@ export default function AdminDashboard() {
 
   return (
     <>
-      <PageHeader title="后台概览" subtitle="诗碧曼养发会所 · 站点配置仪表盘" />
+      <PageHeader title="后台概览" subtitle="Sipimo · 诗碧曼草本养护中心 · 站点配置仪表盘" />
       <div className="px-6 lg:px-10 py-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {cards.map((c) => (
@@ -35,7 +35,7 @@ export default function AdminDashboard() {
               to={c.to}
               className="brand-card lift p-6 flex items-center gap-4"
             >
-              <span className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-[color:var(--color-gold)]/12 text-[color:var(--color-gold)]">
+              <span className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-[color:var(--color-sage-100)] text-[color:var(--color-sage-600)]">
                 {c.i}
               </span>
               <div className="flex-1">

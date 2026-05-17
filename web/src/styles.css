@@ -1,27 +1,60 @@
 @import "tailwindcss";
 
+/* ============================================================
+   诗碧曼 · 视觉系统 v2 ── 杉叶青为主，珍珠白为底，金为点睛
+   ----
+   设计基调来自皙妍居 hero 卡：
+   · 主色：森林深绿 → 杉叶青 → 苔白渐变
+   · 辅色：豆沙金（仅章法、强调与点缀）
+   · 字体：标题用细衬线（Noto Serif），点睛 slogan 用 LXGW WenKai
+   ============================================================ */
 @theme {
-  --color-cream: #F8F3EA;
-  --color-cream-warm: #FBF7EE;
-  --color-sepia: #D9C7A6;
-  --color-sepia-soft: #E8DCC2;
-  --color-ink: #2A2018;
-  --color-ink-soft: #5A4E40;
-  --color-leaf: #6B7A5A;
-  --color-leaf-soft: #8FA178;
-  --color-gold: #B8945A;
-  --color-gold-light: #C8A36B;
-  --color-rose: #B8836E;
-  --color-line: #E5DBC9;
+  /* —— 基底 · 森林白（参照「皙妍居」首页） —— */
+  --color-cream: #FAFBF7;          /* 主底 · 几近纯白，含一抹冷绿 */
+  --color-cream-warm: #F4F7F0;     /* 浅位（次级） */
+  --color-pearl: #FFFFFF;          /* 纯净位 */
+  --color-line: #E5ECDF;           /* 线 · 极淡的青 */
+  --color-line-soft: #EEF2EA;
 
-  --font-kaiti: "Ma Shan Zheng", "STKaiti", "KaiTi", "Noto Serif SC", serif;
-  --font-serif: "Noto Serif SC", "Songti SC", serif;
-  --font-sans: "Noto Sans SC", "PingFang SC", system-ui, sans-serif;
-  --font-num: "Inter", "Noto Sans SC", system-ui, sans-serif;
+  /* —— 墨 —— */
+  --color-ink: #15201A;            /* 标题墨 · 几近黑（带绿基调） */
+  --color-ink-soft: #485446;       /* 正文墨 */
+  --color-ink-mute: #8A958A;       /* 注释 / 弱化 */
 
-  --shadow-soft: 0 1px 2px rgba(42, 32, 24, 0.04), 0 4px 12px rgba(42, 32, 24, 0.05);
-  --shadow-lifted: 0 2px 4px rgba(42, 32, 24, 0.06), 0 12px 24px rgba(42, 32, 24, 0.08);
-  --shadow-deep: 0 6px 12px rgba(42, 32, 24, 0.08), 0 18px 40px rgba(42, 32, 24, 0.12);
+  /* —— 杉叶青（主，更鲜嫩） —— */
+  --color-sage-50:  #F1F7EE;
+  --color-sage-100: #E0EDD9;
+  --color-sage-200: #BFD8B0;
+  --color-sage-300: #97BD86;       /* 浅嫩绿（用于渐变 highlight） */
+  --color-sage-400: #6FA15A;       /* 鲜嫩 · 主 */
+  --color-sage-500: #5C8A48;       /* 杉叶 · 深 */
+  --color-sage-600: #466F36;       /* 森林 · 重 */
+  --color-sage-700: #2F4F25;       /* 森林 · 墨 */
+  --color-mint:     #B6E0A1;       /* 嫩芽 · 渐变末端 */
+
+  /* —— 暖色辅（仅做章法/会员金/分隔小点缀） —— */
+  --color-gold:       #B8945A;
+  --color-gold-light: #D2B27E;
+  --color-gold-soft:  #F2EAD5;
+  --color-rose:       #B98671;     /* 仅钻石档点缀 */
+
+  /* —— 兼容旧别名（不必再改其他页面） —— */
+  --color-leaf:      var(--color-sage-500);
+  --color-leaf-soft: var(--color-sage-400);
+  --color-sepia:     var(--color-line);
+  --color-sepia-soft: var(--color-cream-warm);
+
+  /* —— 字体 —— */
+  --font-kaiti:  "LXGW WenKai Screen", "LXGW WenKai", "Ma Shan Zheng", "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  --font-serif:  "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+  --font-sans:   "Noto Sans SC", "PingFang SC", system-ui, -apple-system, sans-serif;
+  --font-num:    "Inter", "Noto Sans SC", system-ui, sans-serif;
+
+  /* —— 阴影 —— */
+  --shadow-soft:   0 1px 2px rgba(31, 37, 25, 0.04), 0 6px 16px rgba(31, 37, 25, 0.05);
+  --shadow-lifted: 0 2px 5px rgba(31, 37, 25, 0.06), 0 14px 30px rgba(31, 37, 25, 0.08);
+  --shadow-deep:   0 8px 18px rgba(31, 37, 25, 0.10), 0 28px 60px rgba(31, 37, 25, 0.14);
+  --shadow-sage:   0 8px 28px rgba(88, 123, 79, 0.18);
 }
 
 html,
@@ -39,66 +72,175 @@ body,
 
 body {
   background-image:
-    radial-gradient(1200px 600px at 90% -10%, rgba(184, 148, 90, 0.08), transparent 60%),
-    radial-gradient(900px 500px at -10% 110%, rgba(107, 122, 90, 0.07), transparent 60%);
+    radial-gradient(1200px 600px at 90% -10%, rgba(143, 189, 119, 0.10), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(143, 189, 119, 0.06), transparent 60%);
   background-attachment: fixed;
 }
 
-/* 楷体类 */
+/* —— 字族工具 —— */
 .font-kai {
   font-family: var(--font-kaiti);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
+  font-weight: 400;
 }
-
-/* 数字 tabular */
+.font-serif-cn {
+  font-family: var(--font-serif);
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
 .num,
 .num * {
   font-family: var(--font-num);
   font-variant-numeric: tabular-nums lining-nums;
 }
 
-/* 自定义滚动条 - 仅 Webkit */
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-thumb { background: rgba(184, 148, 90, 0.35); border-radius: 8px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(184, 148, 90, 0.55); }
+/* —— 渐变文字 · 森林墨 → 嫩芽 —— */
+.text-gradient-sage {
+  background: linear-gradient(95deg,
+    var(--color-sage-500) 0%,
+    var(--color-sage-300) 50%,
+    var(--color-mint) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.text-gradient-pearl {
+  background: linear-gradient(95deg,
+    rgba(255,255,255,0.96) 0%,
+    rgba(220, 232, 210, 0.92) 60%,
+    rgba(184, 210, 166, 0.95) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-/* 通用 */
+/* —— 滚动条 —— */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb {
+  background: rgba(88, 123, 79, 0.28);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(88, 123, 79, 0.45); }
+
+/* —— 通用卡片 —— */
 .brand-card {
-  background: linear-gradient(180deg, var(--color-cream-warm) 0%, var(--color-cream) 100%);
+  background: linear-gradient(180deg, var(--color-pearl) 0%, var(--color-cream) 100%);
   border: 1px solid var(--color-line);
-  border-radius: 1rem;
+  border-radius: 1.1rem;
   box-shadow: var(--shadow-soft);
-  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  transition: transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 280ms,
+              border-color 280ms;
 }
 .brand-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-lifted);
-  border-color: var(--color-sepia);
+  border-color: var(--color-sage-300);
 }
 
+/* 摄影卡（图为底，底部绿色蒙层） — 复刻皙妍居那张 hero 卡 */
+.photo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  background: var(--color-sage-700);
+  box-shadow: var(--shadow-soft);
+  isolation: isolate;
+  transition: transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 320ms;
+}
+.photo-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-deep);
+}
+.photo-card:hover .photo-card-img { transform: scale(1.04); }
+.photo-card-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.photo-card-overlay {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(31, 37, 25, 0.05) 0%, rgba(31, 37, 25, 0.0) 35%, rgba(31, 37, 25, 0.45) 75%, rgba(31, 37, 25, 0.78) 100%),
+    linear-gradient(180deg, transparent 50%, rgba(52, 75, 48, 0.55) 100%);
+}
+.photo-card-content {
+  position: relative;
+  z-index: 1;
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  height: 100%;
+  justify-content: flex-end;
+  color: white;
+}
+.photo-card-cta {
+  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.78);
+  transition: color 200ms, letter-spacing 200ms;
+}
+.photo-card:hover .photo-card-cta {
+  color: white;
+  letter-spacing: 0.22em;
+}
+
+/* —— 极简分隔线（sage） —— */
 .brand-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-sepia), transparent);
+  background: linear-gradient(90deg, transparent, var(--color-sage-300), transparent);
 }
 
-/* 按钮基类 - 沿用 hair-crm 命名风格 */
+/* —— 章法戳印（页脚） —— */
+.brand-stamp {
+  text-align: center;
+  position: relative;
+  margin: 2rem 0;
+}
+.brand-stamp::before {
+  content: "诗·碧·曼";
+  display: inline-block;
+  padding: 0 1.2rem;
+  font-family: var(--font-kaiti);
+  color: var(--color-sage-500);
+  letter-spacing: 0.45em;
+  font-size: 0.86rem;
+  background: var(--color-cream-warm);
+}
+.brand-stamp::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 50%;
+  height: 1px;
+  background: var(--color-line);
+  z-index: -1;
+}
+
+/* —— 按钮系（sage 为主） —— */
 .btn-primary-harmony {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.625rem 1.25rem;
+  padding: 0.65rem 1.4rem;
   border-radius: 999px;
-  background: linear-gradient(180deg, #C8A36B 0%, #B8945A 100%);
+  background: linear-gradient(180deg, var(--color-sage-400) 0%, var(--color-sage-500) 100%);
   color: white;
   font-weight: 500;
-  letter-spacing: 0.04em;
-  border: 1px solid rgba(184, 148, 90, 0.3);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset, 0 4px 14px rgba(184, 148, 90, 0.28);
-  transition: all 200ms;
+  letter-spacing: 0.06em;
+  border: 1px solid rgba(52, 75, 48, 0.25);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.35) inset, 0 6px 16px rgba(88, 123, 79, 0.30);
+  transition: all 220ms;
 }
 .btn-primary-harmony:hover {
-  filter: brightness(1.04);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset, 0 6px 18px rgba(184, 148, 90, 0.36);
+  filter: brightness(1.05);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.45) inset, 0 8px 22px rgba(88, 123, 79, 0.40);
 }
 .btn-primary-harmony:active { transform: translateY(1px); }
 
@@ -106,16 +248,20 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.625rem 1.25rem;
+  padding: 0.6rem 1.25rem;
   border-radius: 999px;
-  background: white;
+  background: var(--color-pearl);
   color: var(--color-ink);
-  border: 1px solid var(--color-sepia);
+  border: 1px solid var(--color-line);
   font-weight: 500;
   letter-spacing: 0.04em;
-  transition: all 200ms;
+  transition: all 220ms;
 }
-.btn-secondary-harmony:hover { background: var(--color-cream-warm); border-color: var(--color-gold); color: var(--color-gold); }
+.btn-secondary-harmony:hover {
+  background: var(--color-sage-50);
+  border-color: var(--color-sage-300);
+  color: var(--color-sage-600);
+}
 
 .btn-ghost-harmony {
   display: inline-flex;
@@ -128,82 +274,103 @@ body {
   border: 1px solid transparent;
   transition: all 200ms;
 }
-.btn-ghost-harmony:hover { background: rgba(184, 148, 90, 0.08); color: var(--color-ink); }
+.btn-ghost-harmony:hover {
+  background: var(--color-sage-50);
+  color: var(--color-sage-600);
+}
 
+/* "进入 →" 隐式 CTA — 复刻皙妍居那行小字 */
+.btn-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--color-sage-500);
+  transition: color 200ms, letter-spacing 200ms;
+  font-weight: 400;
+}
+.btn-step:hover { color: var(--color-sage-700); letter-spacing: 0.26em; }
+.btn-step .arrow { transition: transform 200ms; }
+.btn-step:hover .arrow { transform: translateX(3px); }
+
+/* —— 章 chip —— */
 .chip {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  padding: 0.2rem 0.7rem;
+  padding: 0.22rem 0.75rem;
   border-radius: 999px;
   font-size: 0.78rem;
-  background: rgba(107, 122, 90, 0.1);
-  color: var(--color-leaf);
-  border: 1px solid rgba(107, 122, 90, 0.18);
+  letter-spacing: 0.04em;
+  background: var(--color-sage-50);
+  color: var(--color-sage-600);
+  border: 1px solid var(--color-sage-100);
 }
-
 .chip-gold {
-  background: rgba(184, 148, 90, 0.12);
-  color: var(--color-gold);
-  border-color: rgba(184, 148, 90, 0.25);
+  background: var(--color-gold-soft);
+  color: #8B6F40;
+  border-color: rgba(184, 148, 90, 0.32);
 }
-
 .chip-ink {
-  background: rgba(42, 32, 24, 0.06);
+  background: rgba(31, 37, 25, 0.04);
   color: var(--color-ink);
-  border-color: rgba(42, 32, 24, 0.12);
+  border-color: rgba(31, 37, 25, 0.10);
+}
+.chip-pearl {
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--color-sage-700);
+  border-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
 }
 
-/* hover 抬升小动画 */
+/* —— hover 抬升 —— */
 .lift {
-  transition: transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 280ms;
+  transition: transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 320ms;
 }
 .lift:hover { transform: translateY(-3px); box-shadow: var(--shadow-lifted); }
 
-/* 减少动效偏好 */
+/* —— 减少动效 —— */
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
 
-/* 隐藏 Fluent provider 多余样式但不破坏组件 */
+/* —— Fluent provider 兼容 —— */
 .fui-FluentProvider {
   background: transparent !important;
   font-family: var(--font-sans) !important;
   color: var(--color-ink) !important;
 }
 
-/* markdown 简易样式 */
+/* —— Markdown —— */
 .prose-mini h1, .prose-mini h2, .prose-mini h3 {
-  font-family: var(--font-kaiti);
-  letter-spacing: 0.04em;
-  margin-top: 0.6em;
+  font-family: var(--font-serif);
+  letter-spacing: 0.05em;
+  margin-top: 0.7em;
   margin-bottom: 0.4em;
+  color: var(--color-ink);
 }
 .prose-mini ul { padding-left: 1.1em; }
 .prose-mini li { margin: 0.2em 0; }
-.prose-mini strong { color: var(--color-gold); }
+.prose-mini strong { color: var(--color-sage-600); font-weight: 600; }
 
-/* 点缀分隔线（楷体小图章） */
-.brand-stamp::before {
-  content: "诗·碧·曼";
+/* —— logomark · 极简 —— */
+.logomark {
+  width: 38px; height: 38px;
+  border-radius: 12px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: linear-gradient(160deg, var(--color-sage-50), var(--color-pearl));
+  color: var(--color-sage-600);
+  border: 1px solid var(--color-sage-100);
+  box-shadow: 0 1px 2px rgba(88, 123, 79, 0.10);
+}
+
+/* —— hairline 标点（标题之间小图章） —— */
+.title-dot {
   display: inline-block;
-  padding: 0 1rem;
-  font-family: var(--font-kaiti);
-  color: var(--color-gold);
-  letter-spacing: 0.4em;
-  font-size: 0.85rem;
-  background: var(--color-cream);
-}
-.brand-stamp {
-  text-align: center;
-  position: relative;
-  margin: 2rem 0;
-}
-.brand-stamp::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; top: 50%;
-  height: 1px;
-  background: var(--color-sepia);
-  z-index: -1;
+  width: 4px; height: 4px;
+  border-radius: 999px;
+  background: var(--color-sage-300);
+  margin: 0 0.7em;
+  transform: translateY(-3px);
 }

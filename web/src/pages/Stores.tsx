@@ -50,7 +50,7 @@ export default function Stores() {
               )}
             </div>
             <div className="p-6 lg:p-8">
-              <h3 className="font-kai text-[32px] text-[color:var(--color-ink)]">{s.name}</h3>
+              <h3 className="font-serif-cn text-[28px] tracking-[0.06em] text-[color:var(--color-ink)]">{s.name}</h3>
               {s.intro_md && (
                 <div className="mt-2 text-[15px] text-[color:var(--color-ink-soft)]">
                   <Markdown>{s.intro_md}</Markdown>

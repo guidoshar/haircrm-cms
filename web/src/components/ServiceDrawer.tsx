@@ -32,7 +32,7 @@ export default function ServiceDrawer({
             </button>
           }
         >
-          <span className="font-kai text-[26px] text-[color:var(--color-ink)]">
+          <span className="font-serif-cn text-[24px] tracking-wide text-[color:var(--color-ink)]">
             {service?.name || ""}
           </span>
         </DrawerHeaderTitle>
@@ -57,7 +57,7 @@ export default function ServiceDrawer({
 
             {/* Price */}
             <section>
-              <h4 className="font-kai text-[22px] text-[color:var(--color-ink)] mb-3 flex items-center gap-2">
+              <h4 className="font-serif-cn text-[20px] tracking-wide text-[color:var(--color-ink)] mb-3 flex items-center gap-2">
                 <Clock24Regular className="text-[color:var(--color-gold)]" />
                 价格 · 时长
                 {service.time_min ? (
@@ -79,7 +79,7 @@ export default function ServiceDrawer({
             {/* Principle */}
             {service.principle_md && (
               <section>
-                <h4 className="font-kai text-[22px] text-[color:var(--color-ink)] mb-2 flex items-center gap-2">
+                <h4 className="font-serif-cn text-[20px] tracking-wide text-[color:var(--color-ink)] mb-2 flex items-center gap-2">
                   <Beaker24Regular className="text-[color:var(--color-leaf)]" />
                   原理 · 大白话说
                 </h4>
@@ -90,7 +90,7 @@ export default function ServiceDrawer({
             {/* Products */}
             {service.products_md && (
               <section>
-                <h4 className="font-kai text-[22px] text-[color:var(--color-ink)] mb-2 flex items-center gap-2">
+                <h4 className="font-serif-cn text-[20px] tracking-wide text-[color:var(--color-ink)] mb-2 flex items-center gap-2">
                   <Box24Regular className="text-[color:var(--color-gold)]" />
                   我们用什么
                 </h4>
@@ -101,7 +101,7 @@ export default function ServiceDrawer({
             {/* Value */}
             {service.value_md && (
               <section>
-                <h4 className="font-kai text-[22px] text-[color:var(--color-ink)] mb-2 flex items-center gap-2">
+                <h4 className="font-serif-cn text-[20px] tracking-wide text-[color:var(--color-ink)] mb-2 flex items-center gap-2">
                   <HeartPulse24Regular className="text-[color:var(--color-rose)]" />
                   适合谁来做
                 </h4>
@@ -112,7 +112,7 @@ export default function ServiceDrawer({
             {/* Packages */}
             {service.packages && service.packages.length > 0 && (
               <section>
-                <h4 className="font-kai text-[22px] text-[color:var(--color-ink)] mb-3">
+                <h4 className="font-serif-cn text-[20px] tracking-wide text-[color:var(--color-ink)] mb-3">
                   课程 · 套餐
                 </h4>
                 <PackageList packages={service.packages} />

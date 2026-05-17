@@ -1,34 +1,42 @@
 import { BrandVariants, createLightTheme, Theme } from "@fluentui/react-components";
 
+/**
+ * Sipimo Brand · 森林白绿
+ * 主色：从皙妍居首页吸取的鲜嫩森林绿（#5C8A48 主，#B6E0A1 嫩）
+ */
 export const siymanBrand: BrandVariants = {
-  10: "#0A0805",
-  20: "#1B130A",
-  30: "#2D1F11",
-  40: "#3F2A18",
-  50: "#52371F",
-  60: "#664527",
-  70: "#7B5331",
-  80: "#90623B",
-  90: "#A67246",
-  100: "#B8945A",
-  110: "#C8A36B",
-  120: "#D6B27D",
-  130: "#E2C190",
-  140: "#ECCFA4",
-  150: "#F2DBB7",
-  160: "#F8E7CC",
+  10:  "#050803",
+  20:  "#0E1709",
+  30:  "#172412",
+  40:  "#1F311A",
+  50:  "#283F22",
+  60:  "#314D2A",
+  70:  "#3B5C32",
+  80:  "#446A3A",
+  90:  "#4E7943",
+  100: "#5C8A48", // 主 · 鲜森林
+  110: "#6FA15A",
+  120: "#82B16E",
+  130: "#97BD86",
+  140: "#ACC99E",
+  150: "#C2D6B7",
+  160: "#D8E3D0",
 };
 
 export const siymanTheme: Theme = {
   ...createLightTheme(siymanBrand),
-  colorNeutralBackground1: "#FBF7EE",
-  colorNeutralBackground2: "#F8F3EA",
-  colorNeutralForeground1: "#2A2018",
-  colorNeutralForeground2: "#5A4E40",
-  colorNeutralStroke1: "#E5DBC9",
-  colorBrandBackground: "#B8945A",
-  colorBrandForeground1: "#B8945A",
-  colorBrandForegroundLink: "#B8945A",
+  colorNeutralBackground1: "#FAFBF7",
+  colorNeutralBackground2: "#F4F7F0",
+  colorNeutralBackground3: "#FFFFFF",
+  colorNeutralForeground1: "#15201A",
+  colorNeutralForeground2: "#485446",
+  colorNeutralForeground3: "#8A958A",
+  colorNeutralStroke1: "#E5ECDF",
+  colorNeutralStroke2: "#EEF2EA",
+  colorBrandBackground: "#5C8A48",
+  colorBrandForeground1: "#5C8A48",
+  colorBrandForegroundLink: "#466F36",
+  colorBrandForegroundLinkHover: "#2F4F25",
   fontFamilyBase:
     '"Noto Sans SC", "PingFang SC", system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
 };

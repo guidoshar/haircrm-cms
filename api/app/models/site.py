@@ -7,7 +7,7 @@ from .base import Base, TimestampMixin
 class SiteConfig(Base, TimestampMixin):
     __tablename__ = "site_config"
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
-    brand_name: Mapped[str] = mapped_column(String(80), default="诗碧曼·养发会所")
+    brand_name: Mapped[str] = mapped_column(String(80), default="Sipimo · 诗碧曼草本养护中心")
     slogan_main: Mapped[str] = mapped_column(String(120), default="草本精华  缕缕用心")
     slogan_sub: Mapped[str] = mapped_column(String(200), default="诗碧曼养发，让你持久年轻")
     intro_md: Mapped[str] = mapped_column(Text, default="")

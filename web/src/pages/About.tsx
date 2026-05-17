@@ -27,7 +27,7 @@ export default function About() {
         transition={{ duration: 0.5 }}
         className="mt-10 brand-card p-8 lg:p-10"
       >
-        <h3 className="font-kai text-[28px] text-[color:var(--color-ink)] flex items-center gap-3">
+        <h3 className="font-serif-cn text-[26px] tracking-[0.06em] text-[color:var(--color-ink)] flex items-center gap-3">
           <Heart24Regular className="text-[color:var(--color-rose)]" />
           我们的来意
         </h3>
@@ -45,8 +45,8 @@ export default function About() {
         transition={{ duration: 0.5, delay: 0.1 }}
         className="mt-6 brand-card p-8 lg:p-10"
       >
-        <h3 className="font-kai text-[28px] text-[color:var(--color-ink)] flex items-center gap-3">
-          <Beaker24Regular className="text-[color:var(--color-leaf)]" />
+        <h3 className="font-serif-cn text-[26px] tracking-[0.06em] text-[color:var(--color-ink)] flex items-center gap-3">
+          <Beaker24Regular className="text-[color:var(--color-sage-500)]" />
           原理 · 大白话说
         </h3>
         <div className="mt-3 text-[15.5px] leading-loose">
@@ -61,11 +61,11 @@ export default function About() {
           { i: <Beaker24Regular />, t: "数字检测", b: "护理前 + 复检 + 月度回访，让『变化』可被记录。" },
         ].map((c, i) => (
           <div key={i} className="brand-card p-6">
-            <span className="inline-flex items-center justify-center w-11 h-11 rounded-xl text-white bg-[color:var(--color-gold)]">
+            <span className="inline-flex items-center justify-center w-11 h-11 rounded-xl text-white bg-gradient-to-br from-[color:var(--color-sage-400)] to-[color:var(--color-sage-600)]">
               {c.i}
             </span>
-            <h4 className="font-kai mt-3 text-[22px]">{c.t}</h4>
-            <p className="text-[14px] text-[color:var(--color-ink-soft)] mt-1.5">{c.b}</p>
+            <h4 className="font-serif-cn mt-3 text-[20px] tracking-wide">{c.t}</h4>
+            <p className="text-[14px] text-[color:var(--color-ink-soft)] mt-1.5 leading-relaxed">{c.b}</p>
           </div>
         ))}
       </div>

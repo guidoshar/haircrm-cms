@@ -6,13 +6,13 @@ export default function PriceBlock({ price, compact = false }: { price?: Price |
   if (compact) {
     return (
       <div className="num flex items-baseline gap-2">
-        <span className="text-[13px] text-[color:var(--color-ink-soft)] line-through">
+        <span className="text-[13px] text-[color:var(--color-ink-mute)] line-through">
           {yuan(price.store_price)}
         </span>
-        <span className="text-[22px] font-semibold text-[color:var(--color-gold)]">
+        <span className="text-[22px] font-semibold text-[color:var(--color-sage-600)] tracking-tight">
           {yuan(price.member_price)}
         </span>
-        <span className="text-[12px] text-[color:var(--color-ink-soft)]">起</span>
+        <span className="text-[11px] text-[color:var(--color-ink-mute)] tracking-wider">起 · 会员价</span>
       </div>
     );
   }
@@ -36,8 +36,8 @@ export default function PriceBlock({ price, compact = false }: { price?: Price |
         </div>
       ))}
       {price.taste_price > 0 && (
-        <div className="col-span-2 flex items-center justify-between rounded-lg px-3 py-2 bg-gradient-to-r from-[color:var(--color-gold)]/12 to-transparent border border-[color:var(--color-gold)]/25">
-          <span className="text-[13px] text-[color:var(--color-gold)] tracking-wider">体验价</span>
+        <div className="col-span-2 flex items-center justify-between rounded-lg px-3 py-2 bg-gradient-to-r from-[color:var(--color-gold-soft)] to-transparent border border-[color:var(--color-gold)]/30">
+          <span className="text-[13px] text-[color:var(--color-gold)] tracking-[0.18em]">体验价</span>
           <span className="text-[20px] font-semibold text-[color:var(--color-gold)]">
             {yuan(price.taste_price)}
           </span>

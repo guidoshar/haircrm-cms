@@ -35,13 +35,18 @@ export default function AdminLayout() {
   return (
     <div className="min-h-screen flex bg-[color:var(--color-cream)]">
       <aside className="w-60 shrink-0 border-r border-[color:var(--color-line)] bg-[color:var(--color-cream-warm)] flex flex-col">
-        <div className="h-16 px-5 flex items-center gap-2.5 border-b border-[color:var(--color-line)]">
-          <span className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-[color:var(--color-gold-light)] to-[color:var(--color-gold)] text-white">
-            <Sparkle24Filled className="w-4 h-4" />
-          </span>
-          <div>
-            <div className="font-kai text-[18px] leading-tight">诗碧曼</div>
-            <div className="text-[10px] tracking-[0.32em] text-[color:var(--color-ink-soft)] uppercase">
+        <div className="h-[68px] px-5 flex items-center gap-3 border-b border-[color:var(--color-line)]">
+          <img
+            src="/products/logo.png"
+            alt="Sipimo"
+            className="h-7 w-auto select-none"
+            draggable={false}
+          />
+          <div className="pl-3 border-l border-[color:var(--color-line)]">
+            <div className="font-serif-cn text-[12px] tracking-[0.32em] text-[color:var(--color-ink)]">
+              诗碧曼
+            </div>
+            <div className="text-[10px] tracking-[0.32em] text-[color:var(--color-ink-mute)] uppercase mt-0.5">
               ADMIN
             </div>
           </div>
@@ -57,8 +62,8 @@ export default function AdminLayout() {
                 [
                   "flex items-center gap-2.5 px-3 py-2 rounded-lg text-[14px] transition",
                   isActive
-                    ? "bg-[color:var(--color-gold)]/12 text-[color:var(--color-gold)] font-medium"
-                    : "text-[color:var(--color-ink-soft)] hover:bg-[color:var(--color-gold)]/6 hover:text-[color:var(--color-ink)]",
+                    ? "bg-[color:var(--color-sage-100)] text-[color:var(--color-sage-700)] font-medium"
+                    : "text-[color:var(--color-ink-soft)] hover:bg-[color:var(--color-sage-50)] hover:text-[color:var(--color-sage-700)]",
                 ].join(" ")
               }
             >
@@ -73,7 +78,7 @@ export default function AdminLayout() {
             href="/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] text-[color:var(--color-ink-soft)] hover:bg-[color:var(--color-gold)]/6"
+            className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] text-[color:var(--color-ink-soft)] hover:bg-[color:var(--color-sage-50)] hover:text-[color:var(--color-sage-700)]"
           >
             <Open24Regular />
             <span>打开站点</span>

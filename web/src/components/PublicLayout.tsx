@@ -3,21 +3,14 @@ import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Api } from "../lib/api";
 import type { SiteConfig } from "../lib/types";
-import {
-  Home24Regular,
-  PersonStar24Regular,
-  Apps24Regular,
-  Location24Regular,
-  LeafOne24Regular as Leaf24Regular,
-  Phone24Regular,
-} from "@fluentui/react-icons";
+import { Phone24Regular, Location24Regular } from "@fluentui/react-icons";
 
 const NAVS = [
-  { to: "/", label: "首页", icon: <Home24Regular /> },
-  { to: "/services", label: "项目", icon: <Apps24Regular /> },
-  { to: "/membership", label: "会员", icon: <PersonStar24Regular /> },
-  { to: "/stores", label: "门店", icon: <Location24Regular /> },
-  { to: "/about", label: "理念", icon: <Leaf24Regular /> },
+  { to: "/", label: "首页" },
+  { to: "/services", label: "项目" },
+  { to: "/membership", label: "会员" },
+  { to: "/stores", label: "门店" },
+  { to: "/about", label: "理念" },
 ];
 
 export default function PublicLayout() {
@@ -29,22 +22,27 @@ export default function PublicLayout() {
 
   return (
     <div className="min-h-full">
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-[color:var(--color-cream)]/85 border-b border-[color:var(--color-line)]">
-        <div className="max-w-[1480px] mx-auto px-6 lg:px-10 py-3.5 flex items-center justify-between gap-4">
-          <NavLink to="/" className="flex items-center gap-3 group">
-            <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-[color:var(--color-gold-light)] to-[color:var(--color-gold)] text-white shadow-[0_4px_12px_rgba(184,148,90,.35)]">
-              <Leaf24Regular />
-            </span>
-            <span className="flex flex-col leading-tight">
-              <span className="font-kai text-[1.35rem] text-[color:var(--color-ink)] group-hover:text-[color:var(--color-gold)] transition">
-                {site?.brand_name || "诗碧曼·养发会所"}
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-[color:var(--color-cream)]/82 border-b border-[color:var(--color-line)]">
+        <div className="max-w-[1480px] mx-auto px-6 lg:px-12 h-[68px] flex items-center justify-between gap-4">
+          {/* logo —— Sipimo 字标 + 中文小副标 */}
+          <NavLink to="/" className="flex items-center gap-3.5 group">
+            <img
+              src="/products/logo.png"
+              alt="Sipimo"
+              className="h-8 lg:h-9 w-auto select-none transition-opacity group-hover:opacity-80"
+              draggable={false}
+            />
+            <span className="hidden sm:flex flex-col leading-tight pl-3.5 border-l border-[color:var(--color-line)]">
+              <span className="font-serif-cn text-[13px] tracking-[0.34em] text-[color:var(--color-ink)]">
+                诗碧曼
               </span>
-              <span className="text-[11px] tracking-[0.3em] text-[color:var(--color-ink-soft)]">
-                SIBIMAN · HAIR CARE SALON
+              <span className="text-[10px] tracking-[0.32em] text-[color:var(--color-ink-mute)] mt-0.5">
+                草本养护中心
               </span>
             </span>
           </NavLink>
 
+          {/* nav —— 文字 + 下划线 */}
           <nav className="hidden md:flex items-center gap-1">
             {NAVS.map((n) => (
               <NavLink
@@ -53,29 +51,32 @@ export default function PublicLayout() {
                 end={n.to === "/"}
                 className={({ isActive }) =>
                   [
-                    "flex items-center gap-2 px-4 py-2 rounded-full text-[15px] transition",
+                    "relative px-4 py-2 text-[14px] tracking-[0.2em] transition",
                     isActive
-                      ? "bg-[color:var(--color-gold)]/10 text-[color:var(--color-gold)]"
-                      : "text-[color:var(--color-ink-soft)] hover:bg-[color:var(--color-gold)]/5 hover:text-[color:var(--color-ink)]",
+                      ? "text-[color:var(--color-sage-600)]"
+                      : "text-[color:var(--color-ink-soft)] hover:text-[color:var(--color-sage-600)]",
                   ].join(" ")
                 }
               >
-                {n.icon}
-                <span>{n.label}</span>
+                {({ isActive }) => (
+                  <>
+                    <span>{n.label}</span>
+                    {isActive && (
+                      <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-6 h-px bg-gradient-to-r from-transparent via-[color:var(--color-sage-400)] to-transparent" />
+                    )}
+                  </>
+                )}
               </NavLink>
             ))}
           </nav>
 
           {site?.cta_phone ? (
-            <a
-              href={`tel:${site.cta_phone}`}
-              className="btn-secondary-harmony text-sm"
-            >
+            <a href={`tel:${site.cta_phone}`} className="btn-secondary-harmony text-[13px]">
               <Phone24Regular className="w-4 h-4" />
-              <span>{site.cta_phone}</span>
+              <span className="num tracking-wider">{site.cta_phone}</span>
             </a>
           ) : (
-            <NavLink to="/stores" className="btn-secondary-harmony text-sm">
+            <NavLink to="/stores" className="btn-secondary-harmony text-[13px]">
               <Location24Regular className="w-4 h-4" />
               <span>门店导航</span>
             </NavLink>
@@ -87,14 +88,14 @@ export default function PublicLayout() {
         <Outlet />
       </main>
 
-      <footer className="mt-16 border-t border-[color:var(--color-line)] bg-[color:var(--color-cream-warm)]">
-        <div className="max-w-[1480px] mx-auto px-6 lg:px-10 py-10">
+      <footer className="mt-20 lg:mt-28 border-t border-[color:var(--color-line)] bg-[color:var(--color-cream-warm)]">
+        <div className="max-w-[1480px] mx-auto px-6 lg:px-12 py-12">
           <div className="brand-stamp"></div>
-          <p className="text-center font-kai text-2xl text-[color:var(--color-ink)] leading-relaxed">
+          <p className="text-center font-kai text-[26px] text-[color:var(--color-ink)] leading-relaxed">
             {site?.footer_quote || "请尽情享受城市中的小憩时刻，让头发恢复活力。"}
           </p>
-          <p className="mt-4 text-center text-sm text-[color:var(--color-ink-soft)] tracking-wider">
-            © 2026 诗碧曼养发会所 · 草本精华 · 缕缕用心
+          <p className="mt-5 text-center text-[12px] tracking-[0.3em] text-[color:var(--color-ink-mute)]">
+            © 2026 Sipimo · 诗碧曼草本养护中心 · 草本精华 · 缕缕用心
           </p>
         </div>
       </footer>

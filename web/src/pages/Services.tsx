@@ -49,16 +49,16 @@ export default function Services() {
                   key={c.slug}
                   onClick={() => onTab(c.slug)}
                   className={[
-                    "relative px-5 py-2 rounded-full font-kai text-[18px] tracking-wider transition",
+                    "relative px-5 py-2 rounded-full font-serif-cn text-[16px] tracking-[0.18em] transition",
                     on
                       ? "text-white"
-                      : "text-[color:var(--color-ink-soft)] hover:text-[color:var(--color-ink)]",
+                      : "text-[color:var(--color-ink-soft)] hover:text-[color:var(--color-sage-600)]",
                   ].join(" ")}
                 >
                   {on && (
                     <motion.span
                       layoutId="tab-pill"
-                      className="absolute inset-0 rounded-full bg-gradient-to-br from-[color:var(--color-gold-light)] to-[color:var(--color-gold)]"
+                      className="absolute inset-0 rounded-full bg-gradient-to-br from-[color:var(--color-sage-400)] to-[color:var(--color-sage-600)]"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
