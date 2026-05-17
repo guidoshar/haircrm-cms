@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #F8F3EA;
+  --color-cream-warm: #FBF7EE;
+  --color-sepia: #D9C7A6;
+  --color-sepia-soft: #E8DCC2;
+  --color-ink: #2A2018;
+  --color-ink-soft: #5A4E40;
+  --color-leaf: #6B7A5A;
+  --color-leaf-soft: #8FA178;
+  --color-gold: #B8945A;
+  --color-gold-light: #C8A36B;
+  --color-rose: #B8836E;
+  --color-line: #E5DBC9;
+
+  --font-kaiti: "Ma Shan Zheng", "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  --font-serif: "Noto Serif SC", "Songti SC", serif;
+  --font-sans: "Noto Sans SC", "PingFang SC", system-ui, sans-serif;
+  --font-num: "Inter", "Noto Sans SC", system-ui, sans-serif;
+
+  --shadow-soft: 0 1px 2px rgba(42, 32, 24, 0.04), 0 4px 12px rgba(42, 32, 24, 0.05);
+  --shadow-lifted: 0 2px 4px rgba(42, 32, 24, 0.06), 0 12px 24px rgba(42, 32, 24, 0.08);
+  --shadow-deep: 0 6px 12px rgba(42, 32, 24, 0.08), 0 18px 40px rgba(42, 32, 24, 0.12);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-image:
+    radial-gradient(1200px 600px at 90% -10%, rgba(184, 148, 90, 0.08), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(107, 122, 90, 0.07), transparent 60%);
+  background-attachment: fixed;
+}
+
+/* 楷体类 */
+.font-kai {
+  font-family: var(--font-kaiti);
+  letter-spacing: 0.04em;
+}
+
+/* 数字 tabular */
+.num,
+.num * {
+  font-family: var(--font-num);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* 自定义滚动条 - 仅 Webkit */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: rgba(184, 148, 90, 0.35); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(184, 148, 90, 0.55); }
+
+/* 通用 */
+.brand-card {
+  background: linear-gradient(180deg, var(--color-cream-warm) 0%, var(--color-cream) 100%);
+  border: 1px solid var(--color-line);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-soft);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+.brand-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lifted);
+  border-color: var(--color-sepia);
+}
+
+.brand-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-sepia), transparent);
+}
+
+/* 按钮基类 - 沿用 hair-crm 命名风格 */
+.btn-primary-harmony {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #C8A36B 0%, #B8945A 100%);
+  color: white;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border: 1px solid rgba(184, 148, 90, 0.3);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset, 0 4px 14px rgba(184, 148, 90, 0.28);
+  transition: all 200ms;
+}
+.btn-primary-harmony:hover {
+  filter: brightness(1.04);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset, 0 6px 18px rgba(184, 148, 90, 0.36);
+}
+.btn-primary-harmony:active { transform: translateY(1px); }
+
+.btn-secondary-harmony {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 999px;
+  background: white;
+  color: var(--color-ink);
+  border: 1px solid var(--color-sepia);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: all 200ms;
+}
+.btn-secondary-harmony:hover { background: var(--color-cream-warm); border-color: var(--color-gold); color: var(--color-gold); }
+
+.btn-ghost-harmony {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-ink-soft);
+  border: 1px solid transparent;
+  transition: all 200ms;
+}
+.btn-ghost-harmony:hover { background: rgba(184, 148, 90, 0.08); color: var(--color-ink); }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  background: rgba(107, 122, 90, 0.1);
+  color: var(--color-leaf);
+  border: 1px solid rgba(107, 122, 90, 0.18);
+}
+
+.chip-gold {
+  background: rgba(184, 148, 90, 0.12);
+  color: var(--color-gold);
+  border-color: rgba(184, 148, 90, 0.25);
+}
+
+.chip-ink {
+  background: rgba(42, 32, 24, 0.06);
+  color: var(--color-ink);
+  border-color: rgba(42, 32, 24, 0.12);
+}
+
+/* hover 抬升小动画 */
+.lift {
+  transition: transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 280ms;
+}
+.lift:hover { transform: translateY(-3px); box-shadow: var(--shadow-lifted); }
+
+/* 减少动效偏好 */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* 隐藏 Fluent provider 多余样式但不破坏组件 */
+.fui-FluentProvider {
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  color: var(--color-ink) !important;
+}
+
+/* markdown 简易样式 */
+.prose-mini h1, .prose-mini h2, .prose-mini h3 {
+  font-family: var(--font-kaiti);
+  letter-spacing: 0.04em;
+  margin-top: 0.6em;
+  margin-bottom: 0.4em;
+}
+.prose-mini ul { padding-left: 1.1em; }
+.prose-mini li { margin: 0.2em 0; }
+.prose-mini strong { color: var(--color-gold); }
+
+/* 点缀分隔线（楷体小图章） */
+.brand-stamp::before {
+  content: "诗·碧·曼";
+  display: inline-block;
+  padding: 0 1rem;
+  font-family: var(--font-kaiti);
+  color: var(--color-gold);
+  letter-spacing: 0.4em;
+  font-size: 0.85rem;
+  background: var(--color-cream);
+}
+.brand-stamp {
+  text-align: center;
+  position: relative;
+  margin: 2rem 0;
+}
+.brand-stamp::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 50%;
+  height: 1px;
+  background: var(--color-sepia);
+  z-index: -1;
+}

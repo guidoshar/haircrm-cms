@@ -1,0 +1,90 @@
+services:
+  siyman-postgres:
+    image: postgres:16-alpine
+    container_name: siyman-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-siyman}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-siyman_pwd_2026}
+      POSTGRES_DB: ${POSTGRES_DB:-siyman_menu}
+    volumes:
+      - siyman_pg_data:/var/lib/postgresql/data
+    ports:
+      - "${POSTGRES_PORT:-5433}:5432"
+    networks:
+      - siyman-net
+      - hair-crm_hair-crm-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-siyman}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  siyman-api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: siyman-api
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-postgresql+psycopg://siyman:siyman_pwd_2026@siyman-postgres:5432/siyman_menu}
+      API_SECRET_KEY: ${API_SECRET_KEY:-change-me-in-prod-please-32bytes}
+      API_JWT_ALG: ${API_JWT_ALG:-HS256}
+      API_JWT_EXPIRE_MIN: ${API_JWT_EXPIRE_MIN:-720}
+      MINIO_ENDPOINT: ${MINIO_ENDPOINT:-hair-crm-minio:9000}
+      MINIO_PUBLIC_BASE: ${MINIO_PUBLIC_BASE:-/cdn}
+      MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY:-sipimo-admin}
+      MINIO_SECRET_KEY: ${MINIO_SECRET_KEY:-Sipimo123456!}
+      MINIO_BUCKET: ${MINIO_BUCKET:-siyman-menu}
+      MINIO_USE_SSL: ${MINIO_USE_SSL:-false}
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin@2025}
+    depends_on:
+      siyman-postgres:
+        condition: service_healthy
+    ports:
+      - "${API_PORT:-8088}:8088"
+    networks:
+      - siyman-net
+      - hair-crm_hair-crm-network
+    volumes:
+      - ./api:/app
+      - /root/价格体系(7)新天地.xlsx:/seed/price.xlsx:ro
+      - /root/img_store:/seed/img_store:ro
+
+  siyman-web:
+    image: nginx:alpine
+    container_name: siyman-web
+    restart: unless-stopped
+    ports:
+      - "${WEB_PORT:-5173}:80"
+    volumes:
+      - ./web/dist:/usr/share/nginx/html:ro
+      - ./web/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - siyman-net
+      - hair-crm_hair-crm-network
+
+  siyman-nginx:
+    image: nginx:alpine
+    container_name: siyman-nginx
+    restart: unless-stopped
+    ports:
+      - "8090:80"
+    volumes:
+      - ./nginx/siyman.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - siyman-api
+      - siyman-web
+    networks:
+      - siyman-net
+      - hair-crm_hair-crm-network
+
+volumes:
+  siyman_pg_data:
+
+networks:
+  siyman-net:
+    driver: bridge
+  hair-crm_hair-crm-network:
+    external: true
